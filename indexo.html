@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simulação da Segunda Lei de Newton</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <h1>Simulação da Segunda Lei de Newton</h1>
+    <label for="mass">Massa (kg):</label>
+    <input type="number" id="mass" value="1"><br><br>
+    <label for="acceleration">Aceleração (m/s²):</label>
+    <input type="number" id="acceleration" value="1"><br><br>
+    <button onclick="calculateForce()">Calcular Força</button>
+    <p id="result"></p>
+    <div id="animationContainer">
+        <div id="object"></div>
+    </div>
+
+    <script>
+        function calculateForce() {
+            var mass = document.getElementById("mass").value;
+            var acceleration = document.getElementById("acceleration").value;
+            var force = mass * acceleration;
+            document.getElementById("result").innerText = "Força: " + force + " N";
+            
+            var object = document.getElementById("object");
+            var distance = acceleration * 100; // Distância proporcional à aceleração
+            object.style.transition = "transform 1s";
+            object.style.transform = "translateX(" + distance + "px)";
+        }
+    </script>
+</body>
+</html>
